@@ -96,9 +96,9 @@ public class ClientGui extends JFrame implements Observer {
 				if (returnValue == JFileChooser.APPROVE_OPTION) {
 					//when you selected a file, store it
 					selectedFile = fileChooser.getSelectedFile();
+					//set the GUI nameField to show which file was selected
+					fileNameField.setText(selectedFile.getName());
 					}
-				//set the GUI nameField to show which file was selected
-				fileNameField.setText(selectedFile.getName());
 			}
 		});
 		btnChooseFile.setBounds(20, 26, 98, 45);
