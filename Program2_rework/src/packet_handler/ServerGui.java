@@ -26,7 +26,6 @@ public class ServerGui extends JFrame implements Observer{
 	private ScrollPane scrollPane;
 	
 	private int packetLossPercentage = 0;
-	private JLabel lblServer;
 	
 
 	/**
@@ -49,6 +48,7 @@ public class ServerGui extends JFrame implements Observer{
 	 * Create the frame.
 	 */
 	public ServerGui() {
+		setTitle("Server");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 453, 538);
 		contentPane = new JPanel();
@@ -63,11 +63,6 @@ public class ServerGui extends JFrame implements Observer{
 		scrollPane.setBounds(10, 94, 417, 395);
 		scrollPane.add(feedBackArea);
 		contentPane.add(scrollPane);
-		
-		lblServer = new JLabel("Server");
-		lblServer.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblServer.setBounds(10, 11, 77, 34);
-		contentPane.add(lblServer);
 	}
 
 	public JTextArea getFeedBackArea() {

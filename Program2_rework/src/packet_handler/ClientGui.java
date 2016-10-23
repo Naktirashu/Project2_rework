@@ -70,6 +70,7 @@ public class ClientGui extends JFrame implements Observer {
 	 * Create the frame.
 	 */
 	public ClientGui(UDPClient udpClient) {
+		setTitle("Client");
 		this.udpClient = udpClient;
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
