@@ -28,7 +28,7 @@ public class ClientGui extends JFrame implements Observer {
 	
 	private JPanel contentPane;
 	
-	protected File selectedFile;
+	protected File selectedFileFromChooser;
 	private JTextField fileNameField;
 	private JButton btnSendFile;
 	
@@ -95,9 +95,9 @@ public class ClientGui extends JFrame implements Observer {
 				int returnValue = fileChooser.showOpenDialog(null);
 				if (returnValue == JFileChooser.APPROVE_OPTION) {
 					//when you selected a file, store it
-					selectedFile = fileChooser.getSelectedFile();
+					selectedFileFromChooser = fileChooser.getSelectedFile();
 					//set the GUI nameField to show which file was selected
-					fileNameField.setText(selectedFile.getName());
+					fileNameField.setText(selectedFileFromChooser.getName());
 					}
 			}
 		});
@@ -113,7 +113,7 @@ public class ClientGui extends JFrame implements Observer {
 		JButton btnSendFile = new JButton("Send File");
 		btnSendFile.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				udpClient.setSelectedFile(selectedFile);
+				udpClient.setSelectedFile(selectedFileFromChooser);
 				udpClient.setCorruption_prob(Double.parseDouble(corruptionTextField.getText()));
 				udpClient.setFailure_prob(Double.parseDouble(packetLossTextField.getText()));
 				
@@ -160,11 +160,11 @@ public class ClientGui extends JFrame implements Observer {
 	}
 
 	public File getSelectedFile() {
-		return selectedFile;
+		return selectedFileFromChooser;
 	}
 
 	public void setSelectedFile(File selectedFile) {
-		this.selectedFile = selectedFile;
+		this.selectedFileFromChooser = selectedFile;
 	}
 
 	//FIXME add a "Sending: " message to the textArea for the string, we can just do a getText and print it, but for file it would be packet number
